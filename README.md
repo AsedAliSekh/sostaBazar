@@ -1,46 +1,146 @@
-# Getting Started with Create React App and Redux
+# sostaBazar Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Introduction
+This project is an e-commerce web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The application allows users to browse products, add items to a cart, and complete purchases. Admin users can manage products and orders through an admin panel.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Features
+### User Features
+- **Product Lists**: Browse and search products with sorting, filtering, and pagination.
+- **Product Details**: View detailed information about each product.
+- **Shopping Cart**: Add, update, and remove products from the cart.
+- **Checkout**: Secure card payments using Stripe or cash on delivery.
+- **User Authentication**: Register, login, and password reset using Passport.js and JWT.
+- **User Profile**: Manage user profile and view order history.
+- **Order Confirmation**: Receive email notifications for order confirmations and password resets.
 
-### `npm start`
+### Admin Features
+- **Product Management**: Add, edit, and delete products.
+- **Order Management**: View and update order statuses.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
+- **Front-end**: React 18, Tailwind CSS, Redux Toolkit with Async Thunk, React Router v6
+- **Back-end**: Node.js, Express.js, Mongoose v7
+- **Database**: MongoDB Atlas
+- **Testing**: JSON-server for front-end testing
+- **Deployment**: Vercel for server deployment
+- **Authentication**: Passport.js, Passport JWT
+- **Email**: Nodemailer with Gmail SMTP
+- **Payments**: Stripe with custom payment intent flow
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
+### Prerequisites
+- Node.js and npm
+- MongoDB Atlas account
+- Stripe account
+- Gmail account for SMTP
 
-### `npm test`
+### Steps
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/AsedAliSekh/sostaBazar.git
+   cd sostaBazar
+2. **Install dependencies**:
+    ```bash
+    npm install
+    cd client
+    npm install
+    cd ..
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Set up environment variables**:
+Create a .env file in the root directory with the following variables:
+    ```bash
+    MONGO_URI=your_mongodb_atlas_uri
+    JWT_SECRET=your_jwt_secret
+    STRIPE_SECRET_KEY=your_stripe_secret_key
+    SMTP_USER=your_gmail_address
+    SMTP_PASS=your_gmail_password
+    Run the application:
 
-### `npm run build`
+4. **Run the application**:
+    ```bash
+    # Start the backend server
+    npm run server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    # Start the frontend development server
+    cd client
+    npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
+### Development
+- Start the back-end server:
+    ```bash
+    npm run server
+- Start the front-end server:
+    ```bash
+    cd client
+    npm start
 
-### `npm run eject`
+### Production
+- Build the front-end:
+    ```bash
+    cd client
+    npm run build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Deploy the back-end and front-end:
+Follow Vercel's deployment guides to deploy both the client and server.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Endpoints
+### Authentication
+- POST /api/auth/register: Register a new user
+- POST /api/auth/login: User login
+- POST /api/auth/reset-password: Reset password
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Products
+- GET /api/products: Get all products with sorting, filtering, and pagination
+- GET /api/products/
+: Get a single product by ID
+- POST /api/products: Add a new product (Admin)
+- PUT /api/products/
+: Update a product (Admin)
+- DELETE /api/products/
+: Delete a product (Admin)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Orders
+- GET /api/orders: Get all orders (Admin)
+- GET /api/orders/user/
+: Get orders by user ID
+- POST /api/orders: Create a new order
+- PUT /api/orders/
+: Update an order (Admin)
 
-## Learn More
+### Cart
+- GET /api/cart: Get user's cart
+- POST /api/cart: Add to cart
+- PUT /api/cart/
+: Update cart item
+- DELETE /api/cart/
+: Remove from cart
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Make sure to follow the project's coding standards and add appropriate tests for your code.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Steps to Contribute
+1. Fork the repository.
+2. Create a new branch:
+    ```bash
+    git checkout -b feature-branch
+3. Make your changes.
+4. Commit and push your changes:
+    ```bash
+    git add .
+    git commit -m "Description of your changes"
+    git push origin feature-branch
+5. Create a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
