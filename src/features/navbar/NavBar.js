@@ -9,7 +9,7 @@ const user = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'sostaBazar', href: '#', current: true },
+    { name: 'SostaBazar', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
@@ -71,12 +71,9 @@ const Navbar = ({ children }) => {
                                         type="button"
                                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     >
-                                        <span className="absolute -inset-1.5" />
-                                        <span className="sr-only">View notifications</span>
                                         <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
-                                        
                                     </button>
-                                    <span className="inline-flex items-center rounded-lg mb-5 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                             3
                                         </span>
                                     {/* Profile dropdown */}
@@ -107,7 +104,7 @@ const Navbar = ({ children }) => {
                                 </div>
                             </div>
                             <div className="-mr-2 flex md:hidden">
-                                {/* Mobile menu button */}
+                                {/* Mobile menu button // code for mobile responsive*/}
                                 <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                     <span className="absolute -inset-0.5" />
                                     <span className="sr-only">Open main menu</span>
@@ -144,16 +141,16 @@ const Navbar = ({ children }) => {
                                     <div className="text-base font-medium leading-none text-white">{user.name}</div>
                                     <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                                 </div>
+                                
                                 <button
                                     type="button"
                                     className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
-                                    <span className="inline-flex items-center rounded-md -mt-5 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    <span className="absolute top-3 right-2 items-center rounded-md -mt-6 -mr-4 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                         3
                                     </span>
+                                    <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 " />
+                                    
                                 </button>
                             </div>
                             <div className="mt-3 space-y-1 px-2">
@@ -174,7 +171,7 @@ const Navbar = ({ children }) => {
 
                 <header className="bg-white shadow">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+                        <h1 className="text-3xl font-bold tracking-tight text-gray-900">SostaBazar</h1>
                     </div>
                 </header>
                 <main>
