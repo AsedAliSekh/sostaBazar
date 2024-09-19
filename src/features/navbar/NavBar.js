@@ -1,6 +1,7 @@
 import React from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const user = {
     name: 'Tom Cook',
@@ -67,15 +68,17 @@ const Navbar = ({ children }) => {
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-4 flex items-center md:ml-6">
-                                    <button
-                                        type="button"
-                                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    >
-                                        <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
-                                    </button>
-                                    <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    
+                                        <button
+                                            type="button"
+                                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                        ><Link to="/cart">
+                                            <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" /></Link>
+                                        </button>
+                                        <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                             3
                                         </span>
+                                    
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="relative ml-3">
                                         <div>
@@ -149,8 +152,9 @@ const Navbar = ({ children }) => {
                                     <span className="absolute top-3 right-2 items-center rounded-md -mt-6 -mr-4 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                         3
                                     </span>
+                                    <Link to="/cart">
                                     <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 " />
-                                    
+                                    </Link>
                                 </button>
                             </div>
                             <div className="mt-3 space-y-1 px-2">

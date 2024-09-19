@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {
+    increment,
+    incrementAsync,
+    selectCount,
+  } from '../authSlice';
 
 export default function Signup() {
   return (
