@@ -1914,27 +1914,37 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
-  let [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
 
-  // handleFilter event handelar function 
+  // handleFilter event handelar function // TODO- on server multiple catagories support 
   const handleFilter = (e, section, option) => {
-    let newFilter = { ...filter, [section.id]: option.value }
+    let newFilter = { ...filter };
+    if(e.target.checked){
+      if(newFilter[section.id]){
+        newFilter[section.id].push(option.value);
+      }else{
+        newFilter[section.id] = [option.value];
+      } 
+    }else{
+      const index = newFilter[section.id].findIndex(el=>el===option.value);
+      newFilter[section.id].splice(index, 1);
+    }
+    console.log(newFilter);
     setFilter(newFilter);
-    dispatch(fetchProductByFilterAsync(newFilter));
-    console.log(newFilter)
   }
+
   // handleSort event handelar function 
   // TODO - orderBy desc not Working -Hgh to low
   const handleSort = (e, option) => {
-    let newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchProductByFilterAsync(newFilter));
-    console.log(newFilter)
+    let sort = {_sort: option.sort, _order: option.order };
+    console.log(sort);
+    setSort(sort);
   }
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync())
-  }, [dispatch]);
+    dispatch(fetchProductByFilterAsync({filter, sort}));
+  }, [dispatch, filter, sort]);
 
 
   return (
