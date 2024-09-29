@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllProductsAsync, selectAllProducts, fetchProductByFilterAsync } from '../ProducSlice';
 import {
   Dialog,
   DialogBackdrop,
@@ -17,7 +16,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
-
+import { fetchAllProductsAsync, selectAllProducts, fetchProductByFilterAsync, selectTotalItems } from '../ProducSlice';
+import { ITEM_PER_PAGE } from '../../../app/constant';
 
 const sortOptions = [
   { name: 'Best Rating', sort: '-rating', order: 'desc', current: false },
@@ -1914,20 +1914,21 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
+  const totalItems = useSelector(selectTotalItems)
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-
+  const [page, setPage] = useState(1);
   // handleFilter event handelar function // TODO- on server multiple catagories support 
   const handleFilter = (e, section, option) => {
     let newFilter = { ...filter };
-    if(e.target.checked){
-      if(newFilter[section.id]){
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
         newFilter[section.id].push(option.value);
-      }else{
+      } else {
         newFilter[section.id] = [option.value];
-      } 
-    }else{
-      const index = newFilter[section.id].findIndex(el=>el===option.value);
+      }
+    } else {
+      const index = newFilter[section.id].findIndex(el => el === option.value);
       newFilter[section.id].splice(index, 1);
     }
     console.log(newFilter);
@@ -1935,22 +1936,31 @@ export default function ProductList() {
   }
 
   // handleSort event handelar function 
-  // TODO - orderBy desc not Working -Hgh to low
+  // TODO - orderBy desc not Working -Hgh to low // its work by just - not need of order 
   const handleSort = (e, option) => {
-    let sort = {_sort: option.sort, _order: option.order };
+    let sort = { _sort: option.sort, _order: option.order };
     console.log(sort);
     setSort(sort);
   }
 
-  useEffect(() => {
-    dispatch(fetchProductByFilterAsync({filter, sort}));
-  }, [dispatch, filter, sort]);
+  // handlePagination Event handelar 
+  const handlePagination = (page) => {
+    console.log({ page });
+    setPage(page);
+  }
 
+  // useEffect for dispatch to apiSclice 
+  useEffect(() => {
+    let pagination = { _page: page, _per_page: ITEM_PER_PAGE };
+    dispatch(fetchProductByFilterAsync({ filter, sort, pagination }));
+  }, [dispatch, filter, sort, page]);
+
+  // useeffect for set page to 1 when filtering is done 
+  useEffect(()=>{
+    setPage(1);
+  }, [totalItems, sort])
 
   return (
-
-
-    <>
       <div className="bg-white">
         <div>
           {/* Mobile filter dialog */}
@@ -1979,11 +1989,10 @@ export default function ProductList() {
             </section>
 
             {/* Pagination Section Start hare */}
-            <Pagination></Pagination>
+            <Pagination handlePagination={handlePagination} page={page} setPage={setPage} totalItems={totalItems}></Pagination>
           </main>
         </div>
       </div>
-    </>
   );
 }
 
@@ -2063,7 +2072,7 @@ function MobileFilter({ mobileFiltersOpen, setMobileFiltersOpen, handleFilter })
   )
 }
 
-function DesktopFilter({handleFilter}) {
+function DesktopFilter({ handleFilter }) {
   return (
     <form className="hidden lg:block">
 
@@ -2106,7 +2115,7 @@ function DesktopFilter({handleFilter}) {
   )
 }
 
-function ProductGrid({products}) {
+function ProductGrid({ products }) {
   return (
     <div className="lg:col-span-3">{/* Your content */}
       {/* product list tailwind component */}
@@ -2116,7 +2125,7 @@ function ProductGrid({products}) {
 
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* Product component map function which will render product deta from API  */}
-            {products.map((product) => (
+            {products.data?.map((product) => (
               // link product detail page with product image
               <Link to="/product-detail">
                 <div key={product.id} className="group relative border-solid border-gray-200 border-2 p-2">
@@ -2161,7 +2170,7 @@ function ProductGrid({products}) {
   )
 }
 
-function Pagination() {
+function Pagination({ handlePagination, page, setPage, totalItems }) {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -2181,8 +2190,9 @@ function Pagination() {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-            <span className="font-medium">97</span> results
+            Showing <span className="font-medium">{(page - 1) * ITEM_PER_PAGE + 1}</span> to
+            <span className="font-medium"> {page * ITEM_PER_PAGE > totalItems ? totalItems : page * ITEM_PER_PAGE}</span> of{' '}
+            <span className="font-medium">{totalItems}</span> results
           </p>
         </div>
         <div>
@@ -2194,20 +2204,23 @@ function Pagination() {
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
             </a>
-            {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            <a
-              href="#"
-              aria-current="page"
-              className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              1
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              2
-            </a>
+
+            {/* Array map for the pagination number  */}
+            {
+              Array.from({ length: Math.ceil(totalItems / ITEM_PER_PAGE) }).map(
+                (el, index) => (
+                  <div
+                    onClick={e => handlePagination(index + 1)}
+                    aria-current="page"
+                    className={`relative cursor-pointer z-10 inline-flex items-center ${index + 1 === page ? 'bg-indigo-600 text-white' : 'text-gray-400'}  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                  >
+                    {index + 1}
+                  </div>
+                )
+              )
+            }
+
+
             <a
               href="#"
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
@@ -2222,7 +2235,7 @@ function Pagination() {
   )
 }
 
-function Sorting({handleSort, setMobileFiltersOpen}) {
+function Sorting({ handleSort, setMobileFiltersOpen }) {
   return (
     <div className="flex items-center">
       <Menu as="div" className="relative inline-block text-left">
