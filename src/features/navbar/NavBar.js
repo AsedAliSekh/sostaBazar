@@ -10,7 +10,7 @@ const user = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'SostaBazar', href: '#', current: true },
+    { name: 'Home', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
@@ -44,11 +44,7 @@ const Navbar = ({ children }) => {
                                 {/* Link home page with logo icon in the navbar */}
                                 <Link to="/">
                                 <div className="flex-shrink-0">
-                                    <img
-                                        alt="Your Company"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                        className="h-8 w-8"
-                                    />
+                                    <h1 className='text-white text-2xl font-bold'>SostaBazar</h1>
                                 </div>
                                 </Link>
                                 <div className="hidden md:block">
