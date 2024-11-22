@@ -2073,8 +2073,8 @@ function ProductGrid({ products }) {
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* Product component map function which will render product deta from API  */}
             {products.data?.map((product) => (
-              // link product detail page with product image
-              <Link to="/product-detail">
+              // link product detail page with product grid, with :id peram of react-router 
+              <Link to={`/product-detail/${product.id}`}>
                 <div key={product.id} className="group relative border-solid border-gray-200 border-2 p-2">
                   <div className="aspect-h-1 aspect-w-1 w-30 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-50">
                     <img
