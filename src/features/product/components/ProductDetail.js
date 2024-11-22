@@ -136,16 +136,16 @@ export default function ProductDetail() {
                   <div className="flex items-center">
                     {[0, 1, 2, 3, 4].map((rating) => (
                       <StarIcon
-                        key={product.rating}
+                        key={rating}
                         aria-hidden="true"
                         className={classNames(
-                          product.rating > rating ? 'text-gray-900' : 'text-gray-200',
+                          product.rating > rating ? 'text-yellow-500' : 'text-gray-300',
                           'h-5 w-5 flex-shrink-0',
                         )}
                       />
                     ))}
                   </div>
-                  <p className="sr-only">{product.rating} out of 5 stars</p>
+                  <p className="text-black"> {product.rating} out of 5 stars</p>
 
                 </div>
               </div>
