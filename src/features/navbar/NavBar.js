@@ -17,9 +17,9 @@ const navigation = [
     { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Your Profile', link: '#' },
+    { name: 'Settings', link: '#' },
+    { name: 'Sign out', link: '/login' },
 ]
 
 function classNames(...classes) {
@@ -43,9 +43,9 @@ const Navbar = ({ children }) => {
                             <div className="flex items-center">
                                 {/* Link home page with logo icon in the navbar */}
                                 <Link to="/">
-                                <div className="flex-shrink-0">
-                                    <h1 className='text-white text-2xl font-bold'>SostaBazar</h1>
-                                </div>
+                                    <div className="flex-shrink-0">
+                                        <h1 className='text-white text-2xl font-bold'>SostaBazar</h1>
+                                    </div>
                                 </Link>
                                 <div className="hidden md:block">
                                     <div className="ml-10 flex items-baseline space-x-4">
@@ -67,17 +67,17 @@ const Navbar = ({ children }) => {
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-4 flex items-center md:ml-6">
-                                    
-                                        <button
-                                            type="button"
-                                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                        ><Link to="/cart">
+
+                                    <button
+                                        type="button"
+                                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    ><Link to="/cart">
                                             <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" /></Link>
-                                        </button>
-                                        <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                                            3
-                                        </span>
-                                    
+                                    </button>
+                                    <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                        3
+                                    </span>
+
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="relative ml-3">
                                         <div>
@@ -93,12 +93,12 @@ const Navbar = ({ children }) => {
                                         >
                                             {userNavigation.map((item) => (
                                                 <MenuItem key={item.name}>
-                                                    <a
-                                                        href={item.href}
+                                                    <Link
+                                                        to={item.link}
                                                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                                                     >
                                                         {item.name}
-                                                    </a>
+                                                    </Link>
                                                 </MenuItem>
                                             ))}
                                         </MenuItems>
@@ -143,7 +143,7 @@ const Navbar = ({ children }) => {
                                     <div className="text-base font-medium leading-none text-white">{user.name}</div>
                                     <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                                 </div>
-                                
+
                                 <button
                                     type="button"
                                     className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -152,7 +152,7 @@ const Navbar = ({ children }) => {
                                         3
                                     </span>
                                     <Link to="/cart">
-                                    <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 " />
+                                        <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 " />
                                     </Link>
                                 </button>
                             </div>
