@@ -4,6 +4,8 @@ import { Radio, RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductByIdAsync, selectProductById } from '../ProducSlice'
 import { useParams } from 'react-router-dom'
+import { addToCartAsync } from '../../cart/cartSlice'
+import { selectLoggedInUser } from '../../auth/authSlice'
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
@@ -37,15 +39,22 @@ function classNames(...classes) {
 
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
-  const [selectedSize, setSelectedSize] = useState(sizes[2])
+  const [selectedSize, setSelectedSize] = useState(sizes[2]);
+  const user = useSelector(selectLoggedInUser);
   const product = useSelector(selectProductById);
   const params = useParams();
   const dispatch = useDispatch();
 
+  // addtocart click hendler for add product in cart 
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch(addToCartAsync({...product,quantity:1,user:user.id }))
+  }
 
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
-  }, [dispatch, params.id])
+  }, [dispatch, params.id]);
+
 
   return (
     <div className="bg-white">
@@ -236,6 +245,8 @@ export default function ProductDetail() {
 
                 <button
                   type="submit"
+                  // click hendler for add product in cart 
+                  onClick={handleAddToCart}
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to cart
