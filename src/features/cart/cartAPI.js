@@ -12,7 +12,7 @@ export function addToCart(item) {
 }
 
 // fetch cart item for user that is already in the cart previously 
-export function fetchItemsByUserId(userId) {
+export function fetchCartItemsByUserId(userId) {
   return new Promise(async (resolve) => {
     const response = await fetch('http://localhost:8080/cart?user='+userId)
     const data = await response.json();
@@ -43,4 +43,16 @@ export function updateCart(updatedItem) {
     const data = await response.json();
     resolve({ data })
   });
+}
+
+export async function resetCart(userId){
+  // get all items of user's cart - and then delete each
+  return new Promise(async (resolve)=>{
+    const response = await fetchCartItemsByUserId(userId);
+    const items = response.data;
+    for(let item of items){
+      await deleteItemFromCart(item.id)
+    }
+    resolve({status: "reset cart"})
+  })
 }

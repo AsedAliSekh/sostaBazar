@@ -8,6 +8,7 @@ import {
 } from '../features/cart/cartSlice';
 import { selectLoggedInUser, updateUserAddressAsync } from '../features/auth/authSlice';
 import { useState } from 'react';
+import { createOrderAsync, selectcurrentOrder } from '../features/order/orderSlice';
 
 
 
@@ -27,6 +28,7 @@ function CheckoutPage() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectCartItems);
+  const currentOrder = useSelector(selectcurrentOrder);
   const subTotalAmount = items.reduce(
     (amount, item) => item.price * item.quantity + amount, 0
   );
@@ -50,13 +52,25 @@ function CheckoutPage() {
     console.log(e.target.value)
   }
 
-  const handleOrder = () =>{
-    // here ordercreate API will dispatch with order details to place a New Order.. (Order Now Button)
+  const handleOrder = (e) => {
+    if(selectedAddress && paymentMode){
+      const order = { items, subTotalAmount, totalCartItem, user, selectedAddress, status: 'pending' };
+      dispatch(createOrderAsync(order));
+      // need to redirect from here to a new page of order success.
+    }
+    else{
+      alert("Select address and payment mode")
+    }
+    
+    //TODO : Redirect to order-success page
+    //TODO : clear cart after order
+    //TODO : on server change the stock number of items
   }
 
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -396,6 +410,7 @@ function CheckoutPage() {
                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div className="mt-6">
                   <div
+                    // onclick function for place order 
                     onClick={handleOrder}
                     className="flex items-center cursor-pointer justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >

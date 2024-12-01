@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addToCart, fetchItemsByUserId, deleteItemFromCart, updateCart } from './cartAPI';
+import { addToCart, fetchCartItemsByUserId, deleteItemFromCart, updateCart, resetCart } from './cartAPI';
 
 const initialState = {
   status: 'idle',
@@ -16,10 +16,10 @@ export const addToCartAsync = createAsyncThunk(
 );
 
 // thunk for featch cart item firsttime 
-export const fetchItemsByUserIdAsync = createAsyncThunk(
-  'cart/fetchItemsByUserId',
+export const fetchCartItemsByUserIdAsync = createAsyncThunk(
+  'cart/fetchCartItemsByUserId',
   async (userId) => {
-    const response = await fetchItemsByUserId(userId);
+    const response = await fetchCartItemsByUserId(userId);
     return response.data;
   }
 );
@@ -42,6 +42,15 @@ export const deleteItemFromCartAsync = createAsyncThunk(
   }
 );
 
+// thunk for reset cart after order placed
+export const resetCartAsync = createAsyncThunk(
+  'cart/resetCart',
+  async (userId) => {
+    const response = await resetCart(userId);
+    return response.data;
+  }
+);
+
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -60,10 +69,10 @@ export const cartSlice = createSlice({
         state.items.push(action.payload);
         alert("Product Succesfuly added")
       })
-      .addCase(fetchItemsByUserIdAsync.pending, (state) => {
+      .addCase(fetchCartItemsByUserIdAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchItemsByUserIdAsync.fulfilled, (state, action) => {
+      .addCase(fetchCartItemsByUserIdAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.items = action.payload;
       })
@@ -82,6 +91,12 @@ export const cartSlice = createSlice({
         state.status = 'idle';
         const index = state.items.findIndex(item => item.id === action.payload.id)
         state.items[index] = action.payload;
+      }).addCase(resetCartAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(resetCartAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.items = []
       });
   },
 });
