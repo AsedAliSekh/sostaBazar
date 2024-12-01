@@ -1,4 +1,4 @@
-// API for creating a new user 
+// API for creating a new user / Singup
 export function createUser(userData) {
   return new Promise(async (resolve) => {
     const response = await fetch('http://localhost:8080/users', {
@@ -31,5 +31,18 @@ export function checkUser(loginInfo) {
     }else{
       reject({message: "Wrong Crediential"})
     }
+  });
+}
+
+// API for add/update user address
+export function updateUserAddress(update) {
+  return new Promise(async (resolve) => {
+    const response = await fetch('http://localhost:8080/users/'+update.id, {
+      method: 'PATCH',
+      body: JSON.stringify(update),
+      headers: { 'content-type': 'application/json' }
+    })
+    const data = await response.json();
+    resolve({ data })
   });
 }

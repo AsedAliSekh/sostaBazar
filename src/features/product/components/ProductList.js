@@ -2074,8 +2074,8 @@ function ProductGrid({ products }) {
             {/* Product component map function which will render product deta from API  */}
             {products.data?.map((product) => (
               // link product detail page with product grid, with :id peram of react-router 
-              <Link to={`/product-detail/${product.id}`}>
-                <div key={product.id} className="group relative border-solid border-gray-200 border-2 p-2">
+              <Link to={`/product-detail/${product.id}`} key={product.id}>
+                <div  className="group relative border-solid border-gray-200 border-2 p-2">
                   <div className="aspect-h-1 aspect-w-1 w-30 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-50">
                     <img
                       alt={product.title}
@@ -2158,6 +2158,7 @@ function Pagination({ handlePagination, page, setPage, totalItems }) {
               Array.from({ length: totalPages }).map(
                 (el, index) => (
                   <div
+                    key={index}
                     onClick={e => handlePagination(index + 1)}
                     aria-current="page"
                     className={`relative cursor-pointer z-10 inline-flex items-center ${index + 1 === page ? 'bg-indigo-600 text-white' : 'text-gray-400'}  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
