@@ -26,7 +26,7 @@ export const OrderSuccessPage = () => {
                 <div className="text-center">
                     <p className="text-base font-semibold text-indigo-600">Order Successfully Placed</p>
                     <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                        Oredr Number #{params.id}
+                        Order Number #{params.id}
                     </h1>
                     <p className="mt-6 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
                         You can check your order in My Account &gt; My Orders
