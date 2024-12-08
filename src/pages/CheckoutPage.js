@@ -6,9 +6,10 @@ import {
   selectCartItems,
   updateCartAsync
 } from '../features/cart/cartSlice';
-import { selectLoggedInUser, updateUserAddressAsync } from '../features/auth/authSlice';
+import { selectLoggedInUser } from '../features/auth/authSlice';
 import { useState } from 'react';
 import { createOrderAsync, selectcurrentOrder } from '../features/order/orderSlice';
+import { updateUserAsync } from '../features/user/userSlice';
 
 
 
@@ -78,7 +79,7 @@ function CheckoutPage() {
             <form
               noValidate
               onSubmit={handleSubmit((data) => {
-                dispatch(updateUserAddressAsync({
+                dispatch(updateUserAsync({
                   ...user,
                   addresses: [...user.addresses, data]
                 }))

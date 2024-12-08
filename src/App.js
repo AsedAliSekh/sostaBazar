@@ -18,6 +18,8 @@ import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchCartItemsByUserIdAsync } from './features/cart/cartSlice';
 import { OrderSuccessPage } from './pages/OrderSuccessPage';
 import { UserOrdersPage } from './pages/UserOrdersPage';
+import UserProfilePage from './pages/UserProfilePage';
+import { fetchLoggedInUserAsync } from './features/user/userSlice';
 
 
 
@@ -68,6 +70,12 @@ const router = createBrowserRouter([
     element: <Protected>
       <UserOrdersPage></UserOrdersPage>
     </Protected>
+  },
+  {
+    path: "/profile",
+    element: <Protected>
+      <UserProfilePage></UserProfilePage>
+    </Protected>
   }
 ]);
 
@@ -77,9 +85,8 @@ function App() {
   // dispatch for fatch user cart items 
   useEffect(()=>{
     if(user){
-      dispatch(
-        fetchCartItemsByUserIdAsync(user.id)
-      )
+      dispatch(fetchCartItemsByUserIdAsync(user.id))
+      dispatch(fetchLoggedInUserAsync(user.id))
     }
   }, [dispatch, user])
   

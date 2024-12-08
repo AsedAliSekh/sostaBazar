@@ -19,7 +19,7 @@ const navigation = [
     { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', link: '#' },
+    { name: 'My Profile', link: '/profile' },
     { name: 'My Orders', link: '/orders' },
     { name: 'Sign out', link: '/login' },
 ]
@@ -74,13 +74,17 @@ const NavBar = ({ children }) => {
                                     <button
                                         type="button"
                                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    ><Link to="/cart">
-                                            <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" /></Link>
+                                    >
+                                        <Link to="/cart">
+                                            <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
+                                        </Link>
                                     </button>
-                                    {/* carticon number represent cart total items  */}
-                                    {cartItems.length && <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    {/* carticon number represent cart total items For Desktop */}
+                                    {cartItems.length > 0 && <span className="inline-flex items-center rounded-lg mb-5 -ml-3 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                         {cartItems.length}
                                     </span>}
+
+
 
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="relative ml-3">
@@ -152,7 +156,7 @@ const NavBar = ({ children }) => {
                                     type="button"
                                     className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
-                                    {cartItems.length && <span className="absolute top-3 right-2 items-center rounded-md -mt-6 -mr-4 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    {cartItems.length>0 && <span className="absolute top-3 right-2 items-center rounded-md -mt-6 -mr-4 z-40 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                                         {cartItems.length}
                                     </span>}
                                     <Link to="/cart">
@@ -162,14 +166,14 @@ const NavBar = ({ children }) => {
                             </div>
                             <div className="mt-3 space-y-1 px-2">
                                 {userNavigation.map((item) => (
-                                    <DisclosureButton
+                                    <Link
                                         key={item.name}
                                         as="a"
-                                        href={item.href}
+                                        to={item.link}
                                         className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                                     >
                                         {item.name}
-                                    </DisclosureButton>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
