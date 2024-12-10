@@ -9,7 +9,7 @@ import {
 import { selectLoggedInUser } from '../features/auth/authSlice';
 import { useState } from 'react';
 import { createOrderAsync, selectcurrentOrder } from '../features/order/orderSlice';
-import { updateUserAsync } from '../features/user/userSlice';
+import { selectUserInfo, updateUserAsync } from '../features/user/userSlice';
 
 
 
@@ -27,7 +27,7 @@ function CheckoutPage() {
 
   // for cart section of this page 
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const items = useSelector(selectCartItems);
   const currentOrder = useSelector(selectcurrentOrder);
   const subTotalAmount = items.reduce(

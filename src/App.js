@@ -19,7 +19,9 @@ import { fetchCartItemsByUserIdAsync } from './features/cart/cartSlice';
 import { OrderSuccessPage } from './pages/OrderSuccessPage';
 import { UserOrdersPage } from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
-import { fetchLoggedInUserAsync } from './features/user/userSlice';
+import { fetchLoggedInUserAsync, selectUserInfo } from './features/user/userSlice';
+import LogOut from './features/auth/components/LogOut';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 
 
@@ -76,19 +78,29 @@ const router = createBrowserRouter([
     element: <Protected>
       <UserProfilePage></UserProfilePage>
     </Protected>
+  },
+  {
+    path: "/logout",
+    element: <LogOut></LogOut>
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordPage></ForgotPasswordPage>
   }
 ]);
 
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const userInfo = useSelector(selectUserInfo);
+  
   // dispatch for fatch user cart items 
   useEffect(()=>{
     if(user){
       dispatch(fetchCartItemsByUserIdAsync(user.id))
       dispatch(fetchLoggedInUserAsync(user.id))
     }
-  }, [dispatch, user])
+  }, [dispatch, user, userInfo])
   
 
 

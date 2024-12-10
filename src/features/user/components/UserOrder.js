@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLoggedInUserOrdersAsync, selectUserOrders } from '../userSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
+import { Link } from 'react-router-dom';
 
 
 export default function UserOrders() {
@@ -15,7 +16,7 @@ export default function UserOrders() {
 
   return (
     <div>
-      {
+      { orders.length> 0 ?
         orders.map((order) => (
           <div className="mx-auto mt-10 max-w-2xl px-4 py-6 sm:px-6 lg:px-8 bg-white max-h-full">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">Order No #{order.id}</h1>
@@ -100,7 +101,22 @@ export default function UserOrders() {
               </li>
             </div>
           </div>
-        ))
+        )) :
+        <div className='m-auto text-center bg-red-100 p-16'>
+          <h2 className='text-red-600 text-center text-xl font-bold'>You Don't Have Any Order Rigth Now</h2>
+
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
+                    Continue Shopping
+                    <span aria-hidden="true"> &rarr;</span>
+                  </button>
+                </Link>
+
+        </div>
+        
       }
     </div>
   );

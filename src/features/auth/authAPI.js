@@ -12,6 +12,15 @@ export function createUser(userData) {
   });
 }
 
+// API for LogOut 
+export function logOut(){
+  return new Promise(async (resolve) => {
+
+    // TODO: logout information from frontend and backend 
+    resolve({status: "success"})
+  })
+}
+
 
 // API for Cheacking user in valid for login or not 
 export function checkUser(loginInfo) {
