@@ -2,9 +2,9 @@
   "products": [
     {
       "id": "1",
-      "title": "Essence Mascara Lash Princess",
+      "title": "Essence 121212551",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "category": "beauty",
+      "category": "fragrances",
       "price": 9.99,
       "discountPercentage": 7.17,
       "rating": 4.94,
@@ -59,13 +59,14 @@
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "2",
-      "title": "Eyeshadow Palette with Mirror",
+      "title": "Eyeshadow Palette w121dssfgeasf",
       "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
       "category": "beauty",
       "price": 19.99,
@@ -124,7 +125,8 @@
         "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
         "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "3",
@@ -184,7 +186,8 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "4",
@@ -244,11 +247,12 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "5",
-      "title": "Red Nail Polish",
+      "title": "Red Nail Polish Top Quality",
       "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
       "category": "beauty",
       "price": 8.99,
@@ -302,7 +306,10 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png"
     },
@@ -6013,6 +6020,514 @@
         "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
+    },
+    {
+      "id": "a92c",
+      "title": "One pEase",
+      "description": "AsedALi",
+      "price": 241554,
+      "discountPercentage": 0,
+      "stock": 1,
+      "category": "laptops",
+      "brand": "Apple",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "b78c",
+      "title": "gfdxh",
+      "description": "ioyhoiy",
+      "price": 54,
+      "discountPercentage": 1,
+      "stock": 10,
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "a036",
+      "title": "uihgil",
+      "description": "jhpiohp",
+      "price": 121,
+      "discountPercentage": 1,
+      "stock": 13,
+      "category": "mobile-accessories",
+      "brand": "Annibale Colombo",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "9154",
+      "title": "lkjli",
+      "description": "pioyhp",
+      "price": 456,
+      "discountPercentage": 1,
+      "stock": 11,
+      "category": "mobile-accessories",
+      "brand": "Furniture Co.",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "a9ef",
+      "title": "adad",
+      "description": "adwdfw",
+      "price": 132,
+      "discountPercentage": 1,
+      "stock": 131,
+      "category": "mens-watches",
+      "brand": "Lenovo",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "ac5f",
+      "title": "asfwa",
+      "description": "gdg",
+      "price": 23,
+      "discountPercentage": 2,
+      "stock": 23,
+      "category": "mens-watches",
+      "brand": "Apple",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "210a",
+      "title": "asdsa",
+      "description": "asfdsaf",
+      "price": 23,
+      "discountPercentage": 26,
+      "stock": 231,
+      "category": "mobile-accessories",
+      "brand": "Huawei",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "0c06",
+      "title": "dfassg",
+      "description": "sadg",
+      "price": 345,
+      "discountPercentage": 5,
+      "stock": 532,
+      "category": "mens-watches",
+      "brand": "Gucci",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "4b39",
+      "title": "sda",
+      "description": "asdfa",
+      "price": 13,
+      "discountPercentage": 32,
+      "stock": 65,
+      "category": "mens-watches",
+      "brand": "Asus",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "9088",
+      "title": "sad",
+      "description": "fd",
+      "price": 433,
+      "discountPercentage": 2,
+      "stock": 33,
+      "category": "mobile-accessories",
+      "brand": "Annibale Colombo",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "ba30",
+      "title": "adsd",
+      "description": "6612",
+      "price": 3423,
+      "discountPercentage": 22,
+      "stock": 234,
+      "category": "mens-shoes",
+      "brand": "Furniture Co.",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "dasdsadas",
+        "asddddd",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "963c",
+      "title": "adqwhoiewr",
+      "description": "hoo ojerpogr",
+      "price": 4165,
+      "discountPercentage": 4,
+      "stock": 5,
+      "category": "mens-shoes",
+      "brand": "Furniture Co.",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "75e9",
+      "title": "Tghis uyug i",
+      "description": "dsfhu hiouashiof oisaodufs",
+      "price": 45,
+      "discountPercentage": 1,
+      "stock": 55,
+      "category": "mens-shoes",
+      "brand": "Furniture Co.",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300",
+        "asddddd",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "5e53",
+      "title": "wresf",
+      "description": "sgddshf",
+      "price": 1,
+      "discountPercentage": 2,
+      "stock": 0,
+      "category": "mens-watches",
+      "brand": "Asus",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "gfjf",
+        "jfg",
+        "dfj",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "459f",
+      "title": "sadvgs",
+      "description": "sdvdsa",
+      "price": 2,
+      "discountPercentage": 2,
+      "stock": 2,
+      "category": "mens-watches",
+      "brand": "Knoll",
+      "thumbnail": "dsafg",
+      "images": [
+        "ewf",
+        "weqf",
+        "ew",
+        "dsafg"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "9a5f",
+      "title": "trgsj",
+      "description": "dfsah",
+      "price": 1,
+      "discountPercentage": 1,
+      "stock": 1,
+      "category": "mens-watches",
+      "brand": "Asus",
+      "thumbnail": "reayg",
+      "images": [
+        "r4t",
+        "dasdsadas",
+        "https://picsum.photos/id/1/200/300",
+        "reayg"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "6d49",
+      "title": "test product add",
+      "description": "Final test",
+      "price": 3,
+      "discountPercentage": 2,
+      "stock": 1,
+      "category": "mens-watches",
+      "brand": "Annibale Colombo",
+      "thumbnail": "test",
+      "images": [
+        "test",
+        "test",
+        "test",
+        "test"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "cd6b",
+      "title": "ml;jmljpl",
+      "description": "gyg9i",
+      "price": 1,
+      "discountPercentage": 1,
+      "stock": 1,
+      "category": "mens-shoes",
+      "brand": "Lenovo",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "test",
+        "test",
+        "test",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "097a",
+      "title": "535",
+      "description": "2+26",
+      "price": 2,
+      "discountPercentage": 2,
+      "stock": 0,
+      "category": "mens-watches",
+      "brand": "Gucci",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://picsum.photos/id/1/200/300",
+        "test",
+        "test",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "b130",
+      "title": "5456465",
+      "description": "59+5+85+",
+      "price": 1,
+      "discountPercentage": 2,
+      "stock": 2,
+      "category": "kitchen-accessories",
+      "brand": "Furniture Co.",
+      "thumbnail": "reayg",
+      "images": [
+        "test",
+        "https://picsum.photos/id/1/200/300",
+        "dfj",
+        "reayg"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "921e",
+      "title": "79979964516+21+2+6 test",
+      "description": "6+59954998798",
+      "price": 4,
+      "discountPercentage": 4,
+      "stock": 3,
+      "category": "laptops",
+      "brand": "Annibale Colombo",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "gfjf",
+        "test",
+        "test",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "d823",
+      "title": "1321",
+      "description": "62\n6",
+      "price": 46,
+      "discountPercentage": 1,
+      "stock": 0,
+      "category": "laptops",
+      "brand": "Dolce & Gabbana",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "gfjf",
+        "dasdsadas",
+        "dfj",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "06cd",
+      "title": "hiii",
+      "description": "hhhhhhu",
+      "price": 6,
+      "discountPercentage": 6,
+      "stock": 6,
+      "category": "mens-shoes",
+      "brand": "Apple",
+      "thumbnail": "5467",
+      "images": [
+        "457",
+        "45",
+        "47",
+        "5467"
+      ],
+      "rating": 0,
+      "deleted": true
+    },
+    {
+      "id": "7b8d",
+      "title": "1321",
+      "description": "1516",
+      "price": 1,
+      "discountPercentage": 2,
+      "stock": 2,
+      "category": "mens-shoes",
+      "brand": "Apple",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0,
+      "deleted": true
+    },
+    {
+      "id": "cbfe",
+      "title": "34qq63ewtt3",
+      "description": "dsg",
+      "price": 34,
+      "discountPercentage": 43,
+      "stock": 34,
+      "category": "kitchen-accessories",
+      "brand": "Knoll",
+      "thumbnail": "https://picsum.photos/id/1/200/300",
+      "images": [
+        "gfjf",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://picsum.photos/id/1/200/300"
+      ],
+      "rating": 0,
+      "deleted": true
+    },
+    {
+      "id": "ad28",
+      "title": "asda",
+      "description": "fsafsa",
+      "price": 345,
+      "discountPercentage": 2,
+      "stock": 334,
+      "category": "laptops",
+      "brand": "Bath Trends",
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+      "images": [
+        "23",
+        "234",
+        "423",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+      ],
+      "rating": 0,
+      "deleted": true
+    },
+    {
+      "id": "24f0",
+      "title": "hi",
+      "description": "hellow",
+      "price": 2,
+      "discountPercentage": 2,
+      "stock": 2,
+      "category": "mens-watches",
+      "brand": "Dior",
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "2d3f",
+      "title": "dsf",
+      "description": "sdf",
+      "price": 2,
+      "discountPercentage": 3,
+      "stock": 324,
+      "category": "mens-shirts",
+      "brand": "Apple",
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+      ],
+      "rating": 0
     }
   ],
   "categories": [
@@ -6294,14 +6809,25 @@
           "city": "Kolkata",
           "state": "West Bengal",
           "pinCode": "736176"
+        },
+        {
+          "name": "Nandodulal Das",
+          "email": "aliased671@gmail.com",
+          "phone": "9932310800",
+          "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pinCode": "736176"
         }
-      ]
+      ],
+      "role": "user"
     },
     {
       "id": "28c8",
       "email": "user@gmail.com",
       "password": "Ased1234",
-      "addresses": []
+      "addresses": [],
+      "role": "user"
     },
     {
       "id": "09fc",
@@ -6326,76 +6852,11 @@
           "state": "West Bengal",
           "pinCode": "736176"
         }
-      ]
+      ],
+      "role": "admin"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "title": "Essence Mascara Lash Princess",
-      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "category": "beauty",
-      "price": 9.99,
-      "discountPercentage": 7.17,
-      "rating": 4.94,
-      "stock": 5,
-      "tags": [
-        "beauty",
-        "mascara"
-      ],
-      "brand": "Essence",
-      "sku": "RCH45Q1A",
-      "weight": 2,
-      "dimensions": {
-        "width": 23.17,
-        "height": 14.43,
-        "depth": 28.01
-      },
-      "warrantyInformation": "1 month warranty",
-      "shippingInformation": "Ships in 1 month",
-      "availabilityStatus": "Low Stock",
-      "reviews": [
-        {
-          "rating": 2,
-          "comment": "Very unhappy with my purchase!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "John Doe",
-          "reviewerEmail": "john.doe@x.dummyjson.com"
-        },
-        {
-          "rating": 2,
-          "comment": "Not as described!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "Nolan Gonzalez",
-          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
-        },
-        {
-          "rating": 5,
-          "comment": "Very satisfied!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "Scarlett Wright",
-          "reviewerEmail": "scarlett.wright@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "30 days return policy",
-      "minimumOrderQuantity": 24,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.618Z",
-        "updatedAt": "2024-05-23T08:56:21.618Z",
-        "barcode": "9164035109868",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-      "quantity": 3,
-      "user": "e100"
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "id": "669e",
@@ -7326,6 +7787,259 @@
         "name": "Ased Ali Sekh",
         "email": "9002943305",
         "phone": "090029 43305",
+        "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pinCode": "736176"
+      },
+      "status": "pending"
+    },
+    {
+      "id": "2bd6",
+      "items": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 7.17,
+          "rating": 4.94,
+          "stock": 5,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 23.17,
+            "height": 14.43,
+            "depth": 28.01
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "reviews": [
+            {
+              "rating": 2,
+              "comment": "Very unhappy with my purchase!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "John Doe",
+              "reviewerEmail": "john.doe@x.dummyjson.com"
+            },
+            {
+              "rating": 2,
+              "comment": "Not as described!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nolan Gonzalez",
+              "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Scarlett Wright",
+              "reviewerEmail": "scarlett.wright@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "9164035109868",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "quantity": 6,
+          "user": "e100"
+        },
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 7.17,
+          "rating": 4.94,
+          "stock": 5,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 23.17,
+            "height": 14.43,
+            "depth": 28.01
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "reviews": [
+            {
+              "rating": 2,
+              "comment": "Very unhappy with my purchase!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "John Doe",
+              "reviewerEmail": "john.doe@x.dummyjson.com"
+            },
+            {
+              "rating": 2,
+              "comment": "Not as described!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nolan Gonzalez",
+              "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Scarlett Wright",
+              "reviewerEmail": "scarlett.wright@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "9164035109868",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "quantity": 1,
+          "user": "e100"
+        }
+      ],
+      "subTotalAmount": 69.92999999999999,
+      "totalCartItem": 7,
+      "user": {
+        "id": "e100",
+        "email": "test@gmail.com",
+        "password": "Ased1234",
+        "addresses": [
+          {
+            "name": "Ased Ali",
+            "email": "ased@gmail.com",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176",
+            "phone": "7550924264",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal"
+          },
+          {
+            "name": "rakshit barman",
+            "email": "rakshit@gmail.com",
+            "phone": "09002943305",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176"
+          },
+          {
+            "name": "Nandodulal Das",
+            "email": "aliased671@gmail.com",
+            "phone": "9932310800",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176"
+          }
+        ]
+      },
+      "selectedAddress": {
+        "name": "Nandodulal Das",
+        "email": "aliased671@gmail.com",
+        "phone": "9932310800",
+        "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pinCode": "736176"
+      },
+      "status": "pending"
+    },
+    {
+      "id": "6515",
+      "items": [
+        {
+          "id": "921e",
+          "title": "79979964516+21+2+6 test",
+          "description": "6+59954998798",
+          "price": 4,
+          "discountPercentage": 4,
+          "stock": 3,
+          "category": "laptops",
+          "brand": "Annibale Colombo",
+          "thumbnail": "https://picsum.photos/id/1/200/300",
+          "images": [
+            "gfjf",
+            "test",
+            "test",
+            "https://picsum.photos/id/1/200/300"
+          ],
+          "rating": 0,
+          "quantity": 4,
+          "user": "e100"
+        }
+      ],
+      "subTotalAmount": 16,
+      "totalCartItem": 4,
+      "user": {
+        "id": "e100",
+        "email": "test@gmail.com",
+        "password": "Ased1234",
+        "addresses": [
+          {
+            "name": "Ased Ali",
+            "email": "ased@gmail.com",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176",
+            "phone": "7550924264",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal"
+          },
+          {
+            "name": "rakshit barman",
+            "email": "rakshit@gmail.com",
+            "phone": "09002943305",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176"
+          },
+          {
+            "name": "Nandodulal Das",
+            "email": "aliased671@gmail.com",
+            "phone": "9932310800",
+            "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pinCode": "736176"
+          }
+        ],
+        "role": "user"
+      },
+      "selectedAddress": {
+        "name": "Nandodulal Das",
+        "email": "aliased671@gmail.com",
+        "phone": "9932310800",
         "street": "Sahebganj, Dinhatat, Coochbehar, West Bengal",
         "city": "Kolkata",
         "state": "West Bengal",

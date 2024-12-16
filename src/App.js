@@ -22,6 +22,10 @@ import UserProfilePage from './pages/UserProfilePage';
 import { fetchLoggedInUserAsync, selectUserInfo } from './features/user/userSlice';
 import LogOut from './features/auth/components/LogOut';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import { ProtectedAdmin } from './features/auth/components/ProtectedAdmin';
+import AdminHome from './pages/AdminHome';
+import AdminProductFromPage from './pages/AdminProductFromPage';
+import AdminProductDetailPage from './pages/AdminProductDetailPage';
 
 
 
@@ -33,6 +37,13 @@ const router = createBrowserRouter([
         <Home></Home>
       </Protected>
 
+  },
+  {
+    path: "/admin",
+    element:
+      <ProtectedAdmin>
+        <AdminHome></AdminHome>
+      </ProtectedAdmin>
   },
   {
     path: "/login",
@@ -80,6 +91,28 @@ const router = createBrowserRouter([
     </Protected>
   },
   {
+    path: "/admin/product-form",
+    element:
+      <ProtectedAdmin>
+        <AdminProductFromPage></AdminProductFromPage>
+      </ProtectedAdmin>
+  },
+  {
+    path: "/admin/product-form/edit/:id",
+    element:
+      <ProtectedAdmin>
+        <AdminProductFromPage></AdminProductFromPage>
+      </ProtectedAdmin>
+  },
+  {
+    path: '/admin/product-detail/:id',
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailPage></AdminProductDetailPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
     path: "/logout",
     element: <LogOut></LogOut>
   },
@@ -100,7 +133,7 @@ function App() {
       dispatch(fetchCartItemsByUserIdAsync(user.id))
       dispatch(fetchLoggedInUserAsync(user.id))
     }
-  }, [dispatch, user, userInfo])
+  }, [dispatch, user])
   
 
 

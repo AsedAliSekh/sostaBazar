@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts, fetchProductsByFilters, fetchCategories,fetchBrands,fetchProductById } from './ProductAPI';
+import { fetchAllProducts, fetchProductsByFilters, fetchCategories, fetchBrands, fetchProductById, createProduct, updateProduct } from './ProductAPI';
 
 const initialState = {
   products: [],
@@ -7,8 +7,9 @@ const initialState = {
   categories: [],
   status: 'idle',
   totalItems: 0,
-  selectedProduct:null
+  selectedProduct: null
 };
+
 
 // Not used this function
 export const fetchAllProductsAsync = createAsyncThunk(
@@ -22,7 +23,7 @@ export const fetchAllProductsAsync = createAsyncThunk(
 
 export const fetchProductByFilterAsync = createAsyncThunk(
   'product/fetchProductByFilterAsync',
-  async ({filter, sort, pagination}) => {
+  async ({ filter, sort, pagination }) => {
     const response = await fetchProductsByFilters(filter, sort, pagination);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
@@ -56,15 +57,34 @@ export const fetchProductByIdAsync = createAsyncThunk(
   }
 );
 
+export const createProductAsync = createAsyncThunk(
+  'product/createProduct',
+  async (product) => {
+    const response = await createProduct(product);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const updateProductAsync = createAsyncThunk(
+  'product/updateProduct',
+  async (update) => {
+    const response = await updateProduct(update);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+
 export const productSlice = createSlice({
   name: 'product',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    clearSelectedProduct: (state) => {
+      state.selectedProduct = null;
     },
- 
+
   },
   extraReducers: (builder) => {
     builder
@@ -104,16 +124,48 @@ export const productSlice = createSlice({
         state.status = 'idle';
         state.selectedProduct = action.payload;
       })
+      .addCase(createProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createProductAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.products = action.products;  // Here I have to Push new product is the array (not =)
+        alert("Product successfully added");
+      })
+      .addCase(updateProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateProductAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        // const index = state.products.findIndex(
+        //   (product) => product.id === action.payload.id
+        // );
+        // state.products[index] = action.payload;
+
+        
+        // Ensure state.products is an array before using findIndex
+        if (Array.isArray(state.products)) {
+          const index = state.products.findIndex(
+            (product) => product.id === action.payload.id
+          );
+
+          if (index !== -1) {
+            state.products[index] = action.payload;
+          }
+        } else {
+          console.error('state.products is not an array:', state.products);
+        }
+      });
   },
 });
 
-export const { increment } = productSlice.actions;
+export const { clearSelectedProduct } = productSlice.actions;
 
 
 export const selectAllProducts = (state) => state.product.products;
 export const selectTotalItems = (state) => state.product.totalItems;
 export const selectCategories = (state) => state.product.categories;
 export const selectBrands = (state) => state.product.brands;
-export const selectProductById = (state) => state.product.selectedProduct;
+export const selectProductById = (state) => state.product.selectedProduct; // ToDo :- it name should selectProduct
 
 export default productSlice.reducer;
