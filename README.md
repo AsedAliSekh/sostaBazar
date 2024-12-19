@@ -141,6 +141,11 @@ Contributions are welcome! Please fork the repository and create a pull request 
     git commit -m "Description of your changes"
     git push origin feature-branch
 5. Create a pull request.
+```bash
+#Feature ADD:---> AdminOrderPage With functionality.
+#Fix:----> 
+#TODO:----> Page Pagination & Sorting/ out 0f stock/ same product add in cart/ and API & thunk is write in my style.
+```
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.

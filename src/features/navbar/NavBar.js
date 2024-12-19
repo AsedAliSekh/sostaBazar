@@ -16,6 +16,7 @@ const navigation = [
     { name: 'Dashboard', link: '/', user: true, current: true },
     { name: 'Team', link: '#', user: true, current: false },
     { name: 'Admin Dashboard', link: '/admin', admin: true, current: true },
+    { name: 'Orders', link: '/admin/orders', admin: true, current: false },
 ]
 const userNavigation = [
     { name: 'My Profile', link: '/profile' },
