@@ -16,8 +16,9 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
-import { fetchAllProductsAsync, selectAllProducts, fetchProductByFilterAsync, selectTotalItems, selectCategories, selectBrands, fetchBrandsAsync, fetchCategoriesAsync } from '../ProducSlice';
+import { fetchAllProductsAsync, selectAllProducts, fetchProductByFilterAsync, selectTotalItems, selectCategories, selectBrands, fetchBrandsAsync, fetchCategoriesAsync, selectProductStatus } from '../ProducSlice';
 import { ITEM_PER_PAGE } from '../../../app/constant';
+import { RotatingLines } from 'react-loader-spinner';
 
 const sortOptions = [
   { name: 'Best Rating', sort: '-rating', order: 'desc', current: false },
@@ -40,6 +41,7 @@ export default function ProductList() {
   const totalItems = useSelector(selectTotalItems);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
+  const status = useSelector(selectProductStatus);
 
   // state variables for the component 
   const [filter, setFilter] = useState({});
@@ -108,6 +110,8 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, [])
+
+
   return (
     <div className="bg-white">
       <div>
@@ -132,6 +136,23 @@ export default function ProductList() {
               {/* Filters -for Desktop*/}
               <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
 
+              {/* loader Ui  */}
+              {status === 'loading' ?
+                <div className='m-auto w-screen'>
+                  <RotatingLines
+                    visible={true}
+                    height="96"
+                    width="96"
+                    color="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    className="fixed top-20"
+                  />
+                </div> : 
+              null}
               {/* Product grid */}
               <ProductGrid products={products}></ProductGrid>
             </div>
@@ -271,13 +292,12 @@ function ProductGrid({ products = [] }) {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 PY-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
 
-
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* Product component map function which will render product deta from API  */}
             {products.data?.map((product) => (
               // link product detail page with product grid, with :id peram of react-router 
               <Link to={`/product-detail/${product.id}`} key={product.id}>
-                <div  className="group relative border-solid border-gray-200 border-2 p-2">
+                <div className="group relative border-solid border-gray-200 border-2 p-2">
                   <div className="aspect-h-1 aspect-w-1 w-30 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-50">
                     <img
                       alt={product.title}
@@ -309,6 +329,11 @@ function ProductGrid({ products = [] }) {
 
                     </div>
                   </div>
+                  {product.stock <= 0 && (
+                    <div>
+                      <p className="text-sm text-red-400">out of stock</p>
+                    </div>
+                  )}
                 </div>
               </Link>
             ))}

@@ -6,6 +6,7 @@ import {
   updateCartAsync
 } from './cartSlice';
 import { Link } from 'react-router-dom';
+import Modal from '../common/Modal';
 
 
 
@@ -14,6 +15,7 @@ import { Link } from 'react-router-dom';
 export default function Cart() {
   const dispatch = useDispatch();
   const items = useSelector(selectCartItems);
+  const [openModal, setOpenModal] = useState(null);
   const subTotalAmount = items.reduce(
     (amount, item) => item.price * item.quantity + amount, 0
   );
@@ -22,11 +24,11 @@ export default function Cart() {
   );
 
   // remove and quentity update handler function 
-  const handleRemoveItem = (e, id) =>{
+  const handleRemoveItem = (e, id) => {
     dispatch(deleteItemFromCartAsync(id))
   }
-  const handleQuentity = (e, item) =>{
-    dispatch(updateCartAsync({...item, quantity: +e.target.value}));
+  const handleQuentity = (e, item) => {
+    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
   }
 
   return (
@@ -64,7 +66,7 @@ export default function Cart() {
                             Qty
                           </label>
                           {/* item quentity onchange function, event handler  */}
-                          <select onChange={e=>handleQuentity(e, item)} value={item.quantity}>
+                          <select onChange={e => handleQuentity(e, item)} value={item.quantity}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -75,8 +77,18 @@ export default function Cart() {
                         </div>
 
                         <div className="flex">
+                          {/* Modal for delete ccart item notification */}
+                          <Modal
+                            title={`Delete ${item.title}`}
+                            message="Are you sure you want to delete this Cart item ?"
+                            dangerOption="Delete"
+                            cancelOption="Cancel"
+                            dangerAction={(e) => handleRemoveItem(e, item.id)}
+                            cancelAction={() => setOpenModal(null)}
+                            showModal={openModal === item.id}
+                          ></Modal>
                           <button
-                            onClick={e=>handleRemoveItem(e, item.id)}
+                            onClick={() => setOpenModal(item.id)}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >

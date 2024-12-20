@@ -27,9 +27,18 @@ import AdminHome from './pages/AdminHome';
 import AdminProductFromPage from './pages/AdminProductFromPage';
 import AdminProductDetailPage from './pages/AdminProductDetailPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT,
+  offset: '30px',
+  // you can also just use 'scale'
+  transition: transitions.SCALE
+};
 
-
+// Route router Route for frontend 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -134,20 +143,24 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const userInfo = useSelector(selectUserInfo);
-  
+
   // dispatch for fatch user cart items 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       dispatch(fetchCartItemsByUserIdAsync(user.id))
       dispatch(fetchLoggedInUserAsync(user.id))
     }
   }, [dispatch, user])
-  
+
 
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {/* react-alert provider */}
+      <AlertProvider template={AlertTemplate} {...options}>
+        {/* route provider entry point  */}
+        <RouterProvider router={router} />
+      </AlertProvider>
     </div>
   );
 }

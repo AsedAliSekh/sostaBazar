@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearSelectedProduct, createProductAsync, fetchProductByIdAsync, selectBrands, selectCategories, selectProductById, updateProductAsync } from '../../product/ProducSlice'
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../../common/Modal';
 
 export default function AdminProductFrom() {
     // react hook from 
@@ -19,10 +20,11 @@ export default function AdminProductFrom() {
     const categories = useSelector(selectCategories);
     const brands = useSelector(selectBrands);
     const selectedProduct = useSelector(selectProductById);
+    const [openModal, setOpenModal] = useState(false);
 
 
-    const handledelete = () =>{
-        const product = {...selectedProduct};
+    const handledelete = () => {
+        const product = { ...selectedProduct };
         product.deleted = true;
         dispatch(updateProductAsync(product))
     }
@@ -88,7 +90,7 @@ export default function AdminProductFrom() {
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-base/7 font-semibold text-gray-900">Add / Edit Product Information</h2>
-
+                    {selectedProduct?.deleted && <h2 className="text-red-500 sm:col-span-6">This product is deleted</h2>}
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         {/* Product Title & description*/}
                         <div className="sm:col-span-6">
@@ -447,12 +449,23 @@ export default function AdminProductFrom() {
                 <Link to={'/admin'} className="text-sm/6 font-semibold text-gray-900">
                     Cancel
                 </Link>
-                {selectedProduct && <button
-                    onClick={handledelete}
-                    className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                    Delete
-                </button>}
+                {/* modal for delete item alert  */}
+                <Modal
+                    title={`Delete ${selectedProduct?.title}`}
+                    message="Are you sure you want to delete this Product ?"
+                    dangerOption="Delete"
+                    cancelOption="Cancel"
+                    dangerAction={handledelete}
+                    cancelAction={() => setOpenModal(null)}
+                    showModal={openModal}
+                ></Modal>
+                {selectedProduct && !selectedProduct.deleted &&
+                    (<button
+                        onClick={(e)=> {e.preventDefault(); setOpenModal(true)}}
+                        className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                        Delete
+                    </button>)}
                 <button
                     type="submit"
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

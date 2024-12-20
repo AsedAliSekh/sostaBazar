@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProductByIdAsync, selectProductById } from '../ProducSlice'
+import { fetchProductByIdAsync, selectProductById, selectProductStatus } from '../ProducSlice'
 import { useParams } from 'react-router-dom'
-import { addToCartAsync } from '../../cart/cartSlice'
+import { addToCartAsync, selectCartItems } from '../../cart/cartSlice'
 import { selectLoggedInUser } from '../../auth/authSlice'
+import { useAlert } from 'react-alert'
+import { RotatingLines } from 'react-loader-spinner'
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
@@ -35,20 +37,37 @@ const highlights = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-// TODO : Loading UI  
+// TODO : Loading UI  | Added But position should be fixed in middle of the page
 
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const user = useSelector(selectLoggedInUser);
   const product = useSelector(selectProductById);
+  const items = useSelector(selectCartItems);
+  const status = useSelector(selectProductStatus);
   const params = useParams();
   const dispatch = useDispatch();
+  const alert = useAlert();
 
   // addtocart click hendler for add product in cart 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    dispatch(addToCartAsync({...product,quantity:1,user:user.id }))
+    if (items.findIndex((item) => item.productId === product.id) < 0) {
+      console.log({ items, product });
+      const newItem = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
+      delete newItem['id'];
+      dispatch(addToCartAsync(newItem));
+      // TODO: it will be based on server response of backend
+      alert.success('Item added to Cart');
+    } else {
+      alert.error('Item Already added');
+    }
   }
 
   useEffect(() => {
@@ -58,6 +77,25 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-white">
+      {/* loader Ui  */}
+
+      {status === 'loading' ?
+        <div className='h-screen flex items-center justify-center'>
+          <RotatingLines
+            visible={true}
+            height="96"
+            width="96"
+            color="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            className="fixed top-20"
+          />
+        </div> :
+        null}
+
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
